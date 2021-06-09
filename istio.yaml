@@ -1,4 +1,35 @@
 apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: my-gateway
+  namespace: some-config-namespace
+spec:
+  selector:
+    app: my-gateway-controller
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - uk.bookinfo.com
+    - eu.bookinfo.com
+    tls:
+      httpsRedirect: true # redirect for http requests
+  - port:
+      number: 443
+      name: https-443
+      protocol: HTTPS
+    hosts:
+    - uk.bookinfo.com
+    - eu.bookinfo.com
+    tls:
+      mode: SIMPLE # enables HTTPS on this port
+      serverCertificate: /etc/certs/servercert.pem
+      privateKey: /etc/certs/privatekey.pem
+ 
+---------------------------------
+apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
   name: reviews-route
@@ -9,17 +40,14 @@ spec:
   - name: "reviews-v2-routes"
     match:
     - uri:
-        prefix: "/wpcatalog"
+        prefix: "/review"  #contextroot
+    route:
+    - destination:
+        host: reviews.prod.svc.cluster.local
+    
+   match:
     - uri:
-        prefix: "/consumercatalog"
-    rewrite:
-      uri: "/newcatalog"
+        prefix: "/productpage" #contextroot
     route:
     - destination:
-        host: reviews.prod.svc.cluster.local
-        subset: v2
-  - name: "reviews-v1-route"
-    route:
-    - destination:
-        host: reviews.prod.svc.cluster.local
-        subset: v1
+        host: product.prod.svc.cluster.local
