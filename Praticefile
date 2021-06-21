@@ -1,0 +1,92 @@
+
+calucation_seconds = 24*60
+name_of_unit = "minitues"
+
+Print ( f "20 day are {20*calucation_seconds} name_of_unit")
+Print (f "30 days are {30*calucation_seconds} name_of_unit")
+print (f " 40 days are {40*calucation_seconds} name_of_unit")
+
+def day_to_units(no_of_units , message):
+    print (f" {no_of_units} days are {no_of_units*calucation_seconds} {name_of_uni}")
+    Print (message)
+day_to_units(40, "you have done good job")
+dat_to_units(50, "you have done good job")
+-------------------------
+def scope_variable(hr_deparment_name);
+   prinicipal = "hanumantharao"
+   print(hr_department)
+   print(name_of_unit)
+   print(principal)
+scope_variable(srinivas)
+
+------------------
+name = hanumantharao
+age = 31
+
+def hanu_age(message):
+
+     retrun (f "my name is {name} and get is {age} and (messgae}")
+    
+result = hanu_age(he has done good work)
+print (result)
+
+-------------------
+no_of _units = minitus
+calucations = 24*30
+
+def number_of_days(no_of_days):
+    condtion_check=no_of_days>0
+    print(type(condtion_check))
+
+    if no_of_days>0:
+        return (f "no_of_days days {no_of_days*calucations} {no_of _units}")
+    else:
+        return "your entered  a negative value"
+unit_value = inputs("enter your no of days") 
+result = number_of_days(init(unit_vlaue))
+print(result)
+
+--------------
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+print("hanumantharao")
+print ("hanu" + "medikonda" + "chimalamarri")
+name = hanu
+initial = medikonda
+
+prinit{$name $ initial}
+
+yourname = input ( "please enter your nama \n")
+
+def yourdeatials(age):
+ prinit{"$name $initial your age is $age"}
+ 
+ 
