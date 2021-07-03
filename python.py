@@ -72,3 +72,14 @@ prinit(my_var)
 hanu_medikonda(20)
 
 ---------------------------------
+print ("this is hanumantharao")
+print( "hanumantharao+ medikonda")
+print ("30 days has (30*24*60) minitues")
+count_item  = 30*20*60
+units = minitues
+
+def task(days)
+print (f "{days} days has {count_item}{units}")
+
+task(20)
+task(30)
