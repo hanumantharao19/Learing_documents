@@ -47,46 +47,15 @@ result = number_of_days(init(unit_vlaue))
 print(result)
 
 --------------
+lower = init(input("enter lower number:")) 20 
+upper = init(input("enter upper number:")) 30
+for num range(lower upper+1)
+    if num>1
+      for i in range(2 num)
+        num%i = 0
+        break
+      else
+      prinit (num) 
 
 
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-print("hanumantharao")
-print ("hanu" + "medikonda" + "chimalamarri")
-name = hanu
-initial = medikonda
-
-prinit{$name $ initial}
-
-yourname = input ( "please enter your nama \n")
-
-def yourdeatials(age):
- prinit{"$name $initial your age is $age"}
- 
  
