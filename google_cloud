@@ -1,0 +1,26 @@
+
+gcloud project list
+
+glcoud component:
+----------------
+gloud components update
+glcoud components install
+--------------
+gcloud compute instaance list
+gcloud compute zones list
+gcloud compute instance describe
+
+
+gcloud config:
+-------------
+gcloud config list
+gcloud config set project
+
+
+gcloud auth login
+gcloud  auth list
+
+
+
+
+
