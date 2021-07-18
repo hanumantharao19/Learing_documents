@@ -1,0 +1,53 @@
+script1:
+--------
+
+#!/bin/bash
+STAT=`netstat -na | grep 8080 | awk '{print $7}'`
+if [ "$STAT" = "LISTEN" ]; then
+    echo "DEFAULT TOMCAT PORT IS LISTENING, SO ITS OK"
+elif [ "$STAT" = "" ]; then 
+    echo "8080 PORT IS NOT IN USE SO TOMCAT IS NOT WORKING"
+    ## only if you defined CATALINA_HOME in JAVA ENV ##
+    cd $CATALINA_HOME/bin
+    ./startup.sh
+fi
+RESULT=`netstat -na | grep 8080 | awk '{print $7}' | wc -l`
+if [ "$RESULT" = 0 ]; then
+    echo "TOMCAT PORT STILL NOT LISTENING"
+elif [ "$RESULT" != 0 ]; then
+    echo "TOMCAT PORT IS LISTENINS AND SO TOMCAT WORKING"
+fi
+-------------------------------------------
+
+To check process is running or not
+ps x | grep [full_path_to_tomcat] | grep -v grep | cut -d ' ' -f 1
+
+------------------------------------------
+
+# vi /opt/script/disk-usage-alert-1.sh
+
+#!/bin/sh
+df -Ph | grep -vE '^Filesystem|tmpfs|cdrom' | awk '{ print $5,$1 }' | while read output;
+do
+  echo $output
+  used=$(echo $output | awk '{print $1}' | sed s/%//g)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $used -ge 60 ]; then
+  echo "The partition \"$partition\" on $(hostname) has used $used% at $(date)" | mail -s "Disk Space Alert: $used% Used On $(hostname)" example@gmail.com
+  fi
+done
+-------------------------------
+
+#!/bin/bash
+used=$(df -Ph | grep '/dev/mapper/vg_2g-lv_dbs' | awk {'print $5'})
+max=80%
+if [ ${used%?} -ge ${max%?} ]; then
+echo "The Mount Point "/DB" on $(hostname) has used $used at $(date)" | mail -s "Disk space alert on $(hostname): $used used" example@gmail.com
+fi
+
+---------------------------------------------------------
+
+
+
+
+
