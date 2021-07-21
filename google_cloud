@@ -1,24 +1,42 @@
 
-gcloud project list
-
+gcloud project list --it list the projects
+gcloud info  --To list gcloud sdk info
 glcoud component:
 ----------------
 gloud components update
 glcoud components install
 --------------
-gcloud compute instaance list
-gcloud compute zones list
+gcloud compute instaance list  --it list all servers assgined to praticular project
+gcloud compute zones list  ---
 gcloud compute instance describe
 
 
 gcloud config:
 -------------
 gcloud config list
-gcloud config set project
+gcloud config set project  --it is used to the project
 
 
-gcloud auth login
-gcloud  auth list
+gcloud auth login  ---> it is used to login
+gcloud  auth list  ---it list who are authenticated
+
+gsutil:
+--------
+gsutil ls gs://bucketname
+gsutil cp gs://bucketname .
+gsutil cp directoryname gs://bucketname/
+
+To check bigquery version
+-----------------------
+bq version  --To check big query version
+bq show   --big query projects
+
+
+
+
+
+
+
 
 
 
