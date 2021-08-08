@@ -1,3 +1,29 @@
+compute service:
+----------------
+a)Compute engine (IAAS)
+b) app engine  (PAAS)
+c) kubernetes engine
+
+Networking services:
+-------------------
+a)VPN(virtual private network  --> it provides private network to create resources
+b)cloud load balancing --> it provides load balaces
+
+storage services:
+--------------
+a) cloud storage
+b) cloud SQL(Mysql)
+c) Big Table(NoSql)
+
+
+Bigdata:
+-------
+a)Big Query
+c) dataflow
+c) dataproc
+d)
+
+
 
 gcloud project list --it list the projects
 gcloud info  --To list gcloud sdk info
