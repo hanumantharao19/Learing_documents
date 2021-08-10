@@ -1,0 +1,47 @@
+Cluster version upgrade:
+------------------------
+Autopilot clusters:
+------------------
+Regardless of how you manage your cluster's version, it is recommended that you enable auto-upgrade for the cluster and its nodes.
+GKE automatically upgrades nodes for Autopilot clusters.
+
+Nodes upgraded automatically by Google Cloud 
+-------------------------------------------
+By default, a cluster's nodes have auto-upgrade enabled, and it is recommended that you do not disable it.
+While a node is being upgraded, GKE stops scheduling new Pods onto it, and attempts to schedule its running Pods onto other nodes.
+This is similar to other events that re-create the node,such as enabling or disabling a feature on the node pool.
+
+The upgrade is only complete when all nodes have been recreated and the cluster is in the desired state.
+When a newly-upgraded node registers with the control plane, GKE marks the node as schedulable.
+
+Manually nodepool upgrade:
+-------------------------
+Manually upgrade a node pool
+You can manually upgrade a node pool version to match the version of the control plane or to a previous version that is still available 
+and is compatible with the control plane. 
+The Kubernetes version and version skew support policy guarantees that control planes are compatible with nodes up to two minor versions older than the control plane.
+For example, Kubernetes 1.13 control planes are compatible with Kubernetes 1.11 nodes
+
+OIDC:(Open ID connect)
+--------------------
+kubectl config set-credentials USER_NAME \
+   --auth-provider=oidc \
+   --auth-provider-arg=idp-issuer-url=( issuer url ) \
+   --auth-provider-arg=client-id=( your client id ) \
+   --auth-provider-arg=client-secret=( your client secret ) \
+   --auth-provider-arg=refresh-token=( your refresh token ) \
+   --auth-provider-arg=idp-certificate-authority=( path to your ca certificate ) \
+   --auth-provider-arg=id-token=( your id_token )
+ 
+
+
+
+
+
+
+
+
+
+
+
+
