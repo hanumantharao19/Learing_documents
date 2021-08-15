@@ -1,4 +1,48 @@
+operaters:
+==========
+1) arthematic operator:  + , - , /, %, *,**,//
+2) relational operators: =, >=, <=, ==, 
+3) assignment operators: = , +=, -=, *=,/=,%=,//=,
+4) bitwise operators: &, |, ^,~, <<,>>
+5) logical operators: and , or , not
+6) membership operators: in , not in
+7) identity operators: is , is not
+
+---------------------------------
+
+data types:
+ ---------
+1) text types: str
+2) numerric types: int, float, complex
+3) sequence types: list, tuple, range
+4) Mapping type:
+5) set type:
+6) boolen type:
+7) binary type:
+  
+ ------------
+
+ 
 print (" this is hanumantharao")
+
+a = "hanumantharao"
+print(a)
+b = 5 
+print(b)
+
+print("hanumantharao numbers is": b)
+
+c = int(6)
+print(6)
+d = str(6number)
+print(d)
+
+a = 6.0
+print(type(a))
+
+
+
+
 
 print ("1year has " + "str(365)" +"days")
 
