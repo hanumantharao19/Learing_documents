@@ -33,6 +33,26 @@ kubectl config set-credentials USER_NAME \
    --auth-provider-arg=idp-certificate-authority=( path to your ca certificate ) \
    --auth-provider-arg=id-token=( your id_token )
  
+ apiVersion:
+ kind:
+ metadata:
+    name:
+    label:
+       name:
+ spec:
+   contianers:
+   - name:
+     image:
+     ports:
+      - containerPort:
+     resources:
+       request:
+         memory: "1G"
+         cpu:
+       limit:
+         memory:
+         cpu:
+ 
 
 
 
