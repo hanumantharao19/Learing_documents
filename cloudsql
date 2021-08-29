@@ -1,0 +1,30 @@
+
+gcloud iam service-accounts create <SERVICE_ACCOUNT_NAME> --display-name "<SERVICE_ACCOUNT_NAME> service account"
+
+
+step1: create service with below command
+
+Syntax: gcloud iam service-accounts create <SERVICE_ACCOUNT_NAME> --display-name "<SERVICE_ACCOUNT_NAME> service account"
+
+example: gcloud iam service-accounts create mhr-cloudsql --display-name "mhr-cloudsql service account"
+
+step2: bind the roles to the service account
+
+Syntax: gcloud projects add-iam-policy-binding <GCP PROJECT ID> --member serviceAccount:<SERVICE_ACCOUNT_NAME>@<GCP PROJECT ID>.iam.gserviceaccount.com --role roles/cloudsql.client
+
+
+example: gcloud projects add-iam-policy-binding demoproject-gcp --member serviceAccount:mhr-cloudsql@demoproject-gcp.iam.gserviceaccount.com --role roles/cloudsql.client
+
+step3: create instance and assign service account while creating
+
+gcloud compute instances create <INSTANCE NAME> --machine-type=f1-micro --zone=us-central1-b --service-account=<SERVICE ACCOUNT FULL NAME>
+
+gcloud compute instances create mhr-cloudsql --machine-type=f1-micro --zone=us-central1-b --service-account=mhr-cloudsql@demoproject-gcp.iam.gserviceaccount.com
+
+
+
+gcloud compute addresses create sql-codelab-allocation --global --purpose=VPC_PEERING --prefix-length=24 --network=default
+
+gcloud services vpc-peerings update --service=servicenetworking.googleapis.com  --network=default     --project=demoproject-gcp --ranges=sql-codelab-allocation --force
+
+gcloud beta sql instances create mhr-cloud-sqldb --no-assign-ip --database-version=POSTGRES_11 --tier=db-f1-micro --region=us-west-b --network=default --root-password=test@1234
